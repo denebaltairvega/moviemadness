@@ -1,10 +1,9 @@
-<li wire:ignore.self class="relative splide__slide" wire:key="{{ $item['id'] }}" x-data="{
+<li wire:ignore.self class="relative splide__slide" x-data="{
     on_watchlist: {{ $on_watchlist ? 'true' : 'false' }}
-}"
-    x-init="tippy($el, {
-        content: $refs.content.innerHTML,
-        allowHTML: true
-    })">
+}" x-init="tippy($el, {
+    content: $refs.content.innerHTML,
+    allowHTML: true
+})">
     <div class="hidden" x-ref="content">
         <p class="prose text-sm text-white">{{ $item['overview'] }}</p>
     </div>

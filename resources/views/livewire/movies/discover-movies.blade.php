@@ -2,10 +2,11 @@
     <h1 class="text-center text-4xl my-16">DISCOVER MOVIES</h1>
     <div class="grid grid-cols-2 md:grid-cols-6 gap-2 md:px-20 mt-8">
         @foreach ($genres as $genre)
-            <button @class([
+            <button wire:key="{{ $genre['id'] }}" @class([
                 'text-center flex gap-2 items-center justify-center hover:bg-gray-400 hover:text-slate-700 w-full border-2 border-white duration-500 p-2 md:p-1',
                 'bg-green-600 text-white' => in_array($genre['id'], $include_genres),
-            ]) wire:click="toggleGenre('{{ $genre['id'] }}')">
+            ])
+                wire:click="toggleGenre('{{ $genre['id'] }}')">
                 <i class="ri-loader-4-line animate-spin" wire:loading.delay
                     wire:target="toggleGenre('{{ $genre['id'] }}')"></i><span>{{ $genre['name'] }}</span>
             </button>
@@ -30,7 +31,7 @@
                             @if ($movies)
                                 <div class="posters-container">
                                     @foreach ($movies as $movie)
-                                        <livewire:poster :item="$movie" :on_watchlist="collect($watchlisted)->contains($movie['id'])" />
+                                        <livewire:poster :key="$movie['id']" :item="$movie" :on_watchlist="collect($watchlisted)->contains($movie['id'])" />
                                     @endforeach
                                 </div>
                                 <div @class([
