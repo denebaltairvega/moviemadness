@@ -6,7 +6,8 @@
                 'text-center flex gap-2 items-center justify-center hover:bg-gray-400 hover:text-slate-700 w-full border-2 border-white duration-500 p-2 md:p-1',
                 'bg-green-600 text-white' => in_array($genre['id'], $include_genres),
             ]) wire:click="toggleGenre('{{ $genre['id'] }}')">
-                <i class="ri-loader-4-line animate-spin" wire:loading.delay wire:target="toggleGenre('{{ $genre['id'] }}')"></i><span>{{ $genre['name'] }}</span>
+                <i class="ri-loader-4-line animate-spin" wire:loading.delay
+                    wire:target="toggleGenre('{{ $genre['id'] }}')"></i><span>{{ $genre['name'] }}</span>
             </button>
         @endforeach
     </div>
@@ -18,7 +19,8 @@
                         <p>Minimum Rating: </p>
                         <span>{{ $min_rating }}</span>
                     </div>
-                    <input class="w-full" type="range" wire:model.lazy="min_rating" step="0.1" min="0" max="10">
+                    <input class="w-full" type="range" wire:model.blur="min_rating" step="0.1" min="0"
+                        max="10">
                 </div>
             </div>
             <div class="mt-16">
@@ -28,7 +30,7 @@
                             @if ($movies)
                                 <div class="posters-container">
                                     @foreach ($movies as $movie)
-                                        <x-movies.poster :watchlisted="collect($watchlisted)->contains($movie['id'])" :item="$movie" />
+                                        <livewire:poster :item="$movie" :on_watchlist="collect($watchlisted)->contains($movie['id'])" />
                                     @endforeach
                                 </div>
                                 <div @class([
@@ -37,10 +39,14 @@
                                     'justify-end' => $current_page <= 1,
                                 ])>
                                     @if ($current_page > 1)
-                                        <button class="text-center py-2 hover:bg-gray-400 hover:text-slate-700 px-12 text-lg border-2 border-white duration-500 flex-shrink-0" wire:click="previousPage">Previous</button>
+                                        <button
+                                            class="text-center py-2 hover:bg-gray-400 hover:text-slate-700 px-12 text-lg border-2 border-white duration-500 flex-shrink-0"
+                                            wire:click="previousPage">Previous</button>
                                     @endif
                                     @if ($current_page < $total_pages)
-                                        <button class="text-center py-2 hover:bg-gray-400 hover:text-slate-700 px-12 text-lg border-2 border-white duration-500 flex-shrink-0" wire:click="nextPage">Next</button>
+                                        <button
+                                            class="text-center py-2 hover:bg-gray-400 hover:text-slate-700 px-12 text-lg border-2 border-white duration-500 flex-shrink-0"
+                                            wire:click="nextPage">Next</button>
                                     @endif
                                 </div>
                             @else

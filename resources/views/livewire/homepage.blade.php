@@ -1,14 +1,13 @@
 <div x-data x-cloak>
-    <div wire:ignore>
+    <div wire:ignore.self>
         <x-homepage.hero-carousel :items="$discover_movies" />
     </div>
     <div class="md:px-16 px-4">
         <div class="space-y-8 mt-16">
             @foreach ($movies as $key => $movie_collection)
                 <div wire:ignore>
-                    <x-homepage.movie-posters-scroller id="{{ $key }}" :link_for_more="route('movies.by-type', ['type' => $key])" :title="str($key)
-                        ->replace('_', ' ')
-                        ->upper()" :items="$movie_collection" :watchlisted="$watchlisted" />
+                    <x-homepage.movie-posters-scroller id="{{ $key }}" :link_for_more="route('movies.by-type', ['type' => $key])" :title="str($key)->replace('_', ' ')->upper()"
+                        :items="$movie_collection" :watchlisted="$watchlisted" />
                 </div>
             @endforeach
         </div>
@@ -28,7 +27,8 @@
             <div class="flex-1">
                 <p class="prose text-white text-xl">
                     Welcome to MovieMadness, <br>
-                    your premier destination for exploring movies, watching trailers, and creating your personalized movie watchlists.
+                    your premier destination for exploring movies, watching trailers, and creating your personalized
+                    movie watchlists.
                     Immerse yourself in the world of cinema and embark on an extraordinary journey of movie magic.
                 </p>
             </div>

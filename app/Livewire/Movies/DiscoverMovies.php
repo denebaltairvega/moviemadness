@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Http\Livewire\Movies;
+namespace App\Livewire\Movies;
 
 use App\Models\WatchlistItem;
-use App\Oxytoxin\ManagesMovieWatchlist;
 use App\Services\TMDB\TMDBClient;
 use App\Services\TMDB\Traits\PaginatesMovieResults;
 use Illuminate\Http\Response;
@@ -11,7 +10,7 @@ use Livewire\Component;
 
 class DiscoverMovies extends Component
 {
-    use PaginatesMovieResults, ManagesMovieWatchlist;
+    use PaginatesMovieResults;
 
     public $genres = [];
     public $movies = [];

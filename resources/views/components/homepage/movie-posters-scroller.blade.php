@@ -12,7 +12,8 @@
         <a class="hover:underline" href="{{ $link_for_more }}">See More <i class="ri-arrow-right-s-fill"></i></a>
     </div>
     <div class="mt-2">
-        <x-splide breakpoints="{
+        <x-splide
+            breakpoints="{
                 480: {
                     perPage: 2,
                     pagination: false,
@@ -21,9 +22,10 @@
                     perPage: 4,
                     pagination: false,
                 },
-            }" :id="$id">
+            }"
+            :id="$id">
             @foreach ($items as $item)
-                <x-movies.poster :watchlisted="collect($watchlisted)->contains($item['id'])" :item="$item" />
+                <livewire:poster :$item :on_watchlist="collect($watchlisted)->contains($item['id'])" />
             @endforeach
         </x-splide>
     </div>

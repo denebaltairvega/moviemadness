@@ -9,7 +9,7 @@
             </a>
         </ul>
         <div>
-            <p>&copy; 2023</p>
+            <p>&copy; {{ today()->year }}</p>
         </div>
     </div>
     <div class="mt-4"></div>

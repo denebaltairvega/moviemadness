@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Livewire;
 
 use App\Models\WatchlistItem;
 use App\Oxytoxin\ManagesMovieWatchlist;
@@ -11,8 +11,6 @@ use Livewire\Component;
 
 class Homepage extends Component
 {
-    use ManagesMovieWatchlist;
-
     public $discover_movies = [];
     public $movies = [];
     public $genres = [];

@@ -3,9 +3,9 @@
     <div class="md:px-20">
         <div class="mt-16">
             <div>
-                <form class="relative" wire:submit.prevent="search">
+                <form class="relative" wire:submit="search">
                     <i class="ri-search-line text-black text-3xl top-1/2 -translate-y-1/2 left-3 absolute"></i>
-                    <input class="w-full text-2xl text-black pl-16" type="text" placeholder="Enter keywords..." wire:model.defer="search" required>
+                    <input class="w-full text-2xl text-black pl-16" type="text" placeholder="Enter keywords..." wire:model="search" required>
                 </form>
                 <div class="min-h-[10rem] text-center">
                     @if ($search)

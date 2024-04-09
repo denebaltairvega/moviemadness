@@ -1,22 +1,18 @@
-@props(['item', 'watchlisted' => false])
-
-<li class="relative splide__slide" wire:key="{{ $item['id'] }}" x-data="{
-    watchlisted: {{ $watchlisted ? 'true' : 'false' }}
-}" x-init="tippy($el, {
-    content: $refs.content.innerHTML,
-    allowHTML: true
-})">
+<li wire:ignore.self class="relative splide__slide" wire:key="{{ $item['id'] }}" x-data="{
+    on_watchlist: {{ $on_watchlist ? 'true' : 'false' }}
+}"
+    x-init="tippy($el, {
+        content: $refs.content.innerHTML,
+        allowHTML: true
+    })">
     <div class="hidden" x-ref="content">
         <p class="prose text-sm text-white">{{ $item['overview'] }}</p>
     </div>
     <div class="relative inline-flex flex-col mx-auto">
-        <div class="absolute top-1 right-2 z-20 text-xl"
-            @watchlisted.window=" if({{ $item['id'] }} == $event.detail.movie_id){
-                watchlisted = true;
-            }">
-            <button class="border-2 px-1 z-40 rounded-full hover:bg-red-600 duration-300"
-                :class="watchlisted ? 'bg-red-600' : ''"
-                @if (!$watchlisted) wire:click="toggleWatchlist({{ $item['id'] }})" @endif>
+        <div class="absolute top-1 right-2 z-20 text-xl">
+            <button
+                class="border-2 px-1 z-40 rounded-full hover:bg-red-600 duration-300 @if ($on_watchlist) bg-red-600 @endif"
+                wire:click="toggleWatchlist({{ $item['id'] }})">
                 <i class="ri-loader-4-line animate-spin" wire:loading.delay
                     wire:target="toggleWatchlist({{ $item['id'] }})"></i>
                 <i class="ri-heart-3-line" wire:loading.delay.remove

@@ -1,14 +1,14 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthController;
-use App\Http\Livewire\Auth\Login;
-use App\Http\Livewire\Auth\Register;
-use App\Http\Livewire\Homepage;
-use App\Http\Livewire\Movies\DiscoverMovies;
-use App\Http\Livewire\Movies\MovieDetails;
-use App\Http\Livewire\Movies\MoviesByType;
-use App\Http\Livewire\Movies\SearchMovies;
-use App\Http\Livewire\UserWatchlist;
+use App\Livewire\Auth\Login;
+use App\Livewire\Auth\Register;
+use App\Livewire\Homepage;
+use App\Livewire\Movies\DiscoverMovies;
+use App\Livewire\Movies\MovieDetails;
+use App\Livewire\Movies\MoviesByType;
+use App\Livewire\Movies\SearchMovies;
+use App\Livewire\UserWatchlist;
 use Illuminate\Support\Facades\Route;
 
 /*

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Auth;
+namespace App\Livewire\Auth;
 
 use Filament\Notifications\Notification;
 use Illuminate\Support\Facades\Auth;

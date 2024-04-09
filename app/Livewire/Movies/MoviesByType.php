@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Movies;
+namespace App\Livewire\Movies;
 
 use App\Services\TMDB\TMDBClient;
 use App\Services\TMDB\Traits\PaginatesMovieResults;

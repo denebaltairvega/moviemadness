@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Movies;
+namespace App\Livewire\Movies;
 
 use App\Models\WatchlistItem;
 use App\Oxytoxin\ManagesMovieWatchlist;
@@ -11,7 +11,7 @@ use Livewire\Component;
 
 class SearchMovies extends Component
 {
-    use PaginatesMovieResults, ManagesMovieWatchlist;
+    use PaginatesMovieResults;
 
     public $search = '';
     public $movies = [];

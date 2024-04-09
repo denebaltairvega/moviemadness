@@ -15,7 +15,7 @@ return new class extends Migration
         Schema::create('watchlist_items', function (Blueprint $table) {
             $table->id();
             $table->tinyInteger('status')->default(1);
-            $table->foreignIdFor(User::class);
+            $table->foreignIdFor(User::class)->constrained();
             $table->string('movie_id');
             $table->jsonb('other_details')->nullable();
             $table->timestamp('watched_at')->nullable();
