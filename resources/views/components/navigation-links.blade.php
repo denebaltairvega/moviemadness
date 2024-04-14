@@ -13,9 +13,10 @@
     ])>
         <li>Discover</li>
     </a>
-    <a href="{{ route('home') }}#about"@class([
+    <a href="{{ route('about') }}"@class([
         'border-b border-white px-4',
-        'border border-amber-600 text-amber-600' => false,
+        'border border-amber-600 text-amber-600' =>
+            \Route::currentRouteName() == 'about',
     ])>
         <li>About</li>
     </a>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthController;
+use App\Livewire\About;
 use App\Livewire\Auth\Login;
 use App\Livewire\Auth\Register;
 use App\Livewire\Homepage;
@@ -29,6 +30,7 @@ Route::prefix('movies')->name('movies.')->group(function () {
     Route::get('type/{type}', MoviesByType::class)->name('by-type');
     Route::get('{movie_id}', MovieDetails::class)->name('details')->where('movie_id', '[0-9]+');
 });
+Route::get('about', About::class)->name('about');
 
 Route::middleware('auth')->get('watchlist', UserWatchlist::class)->name('user.watchlist');
 
