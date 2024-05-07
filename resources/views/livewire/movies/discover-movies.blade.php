@@ -20,14 +20,15 @@
                         <p>Minimum Rating: </p>
                         <span>{{ $min_rating }}</span>
                     </div>
-                    <input class="w-full" type="range" wire:model.blur="min_rating" step="0.1" min="0"
+                    <input class="w-full" type="range" wire:model.live="min_rating" step="0.1" min="0"
                         max="10">
                 </div>
             </div>
             <div class="mt-16">
                 <div>
                     <div class="min-h-[10rem] text-center" wire:init="discover">
-                        <div wire:loading.delay.remove wire:target="discover,toggleGenre,render">
+                        <div wire:loading.delay.remove
+                            wire:target="discover,toggleGenre,min_rating,nextPage,previousPage">
                             @if ($movies)
                                 <div class="posters-container">
                                     @foreach ($movies as $movie)
