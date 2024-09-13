@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Movies;
 
+use App\Models\WatchlistItem;
 use App\Services\TMDB\TMDBClient;
 use App\Services\TMDB\Traits\PaginatesMovieResults;
 use Illuminate\Http\Response;
@@ -14,6 +15,8 @@ class MoviesByType extends Component
     public $type;
     public $movies = [];
     public $loaded = false;
+    public $watchlisted = [];
+
 
     protected $queryString = [
         "current_page" => ['except' => 1],
@@ -22,6 +25,9 @@ class MoviesByType extends Component
     public function mount($type)
     {
         $this->type = $type;
+        if (auth()->id()) {
+            $this->watchlisted = WatchlistItem::whereUserId(auth()->id())->pluck('movie_id')->toArray();
+        }
     }
 
 
