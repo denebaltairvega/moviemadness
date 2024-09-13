@@ -25,7 +25,7 @@
             }"
             :id="$id">
             @foreach ($items as $item)
-                <livewire:poster :$item :on_watchlist="collect($watchlisted)->contains($item['id'])" />
+                <livewire:poster wire:key="movie-{{ $item['id'] }}" :$item :on_watchlist="collect($watchlisted)->contains($item['id'])" />
             @endforeach
         </x-splide>
     </div>

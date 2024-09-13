@@ -11,7 +11,7 @@
     'interval' => 0,
 ])
 
-<div x-cloak wire:ignore x-data x-init="new Splide('#{{ $id }}', {
+<div wire:ignore x-data x-init="new Splide('#{{ $id }}', {
     type: '{{ $type }}',
     perPage: {{ $perPage }},
     gap: '{{ $gap }}',
@@ -21,7 +21,7 @@
     autoplay: {{ $autoplay }},
     interval: {{ $interval }},
 }).mount()">
-    <section class="splide" id="{{ $id }}">
+    <section x-cloak class="splide" id="{{ $id }}">
         <div class="splide__track">
             <ul class="splide__list">
                 {{ $slot }}

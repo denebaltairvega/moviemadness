@@ -3,9 +3,16 @@
     <div class="md:px-20">
         <div class="mt-16">
             <div>
-                <form class="relative" wire:submit="search">
-                    <i class="ri-search-line text-black text-3xl top-1/2 -translate-y-1/2 left-3 absolute"></i>
-                    <input class="w-full text-2xl text-black pl-16" type="text" placeholder="Enter keywords..." wire:model="search" required>
+                <form class="flex gap-2" wire:submit="searchMovies">
+                    <div class="relative flex-1">
+                        <i class="ri-search-line text-black text-3xl top-1/2 -translate-y-1/2 left-3 absolute"></i>
+                        <input class="w-full text-2xl text-black pl-16" type="text" placeholder="Enter keywords..." wire:model="search" required>
+                    </div>
+                    <button class="text-center py-2 hover:bg-gray-400 hover:text-slate-700 px-12 text-lg border-2 border-white duration-500 flex-shrink-0" type="submit">
+                        SEARCH
+                        <i class="ri-loader-4-line animate-spin" wire:loading.delay
+                        wire:target="searchMovies"></i>
+                    </button>
                 </form>
                 <div class="min-h-[10rem] text-center">
                     @if ($search)
@@ -13,7 +20,7 @@
                             @if ($movies)
                                 <div class="posters-container">
                                     @foreach ($movies as $movie)
-                                        <x-movies.poster :watchlisted="collect($watchlisted)->contains($movie['id'])" :item="$movie" />
+                                        <livewire:poster wire:key="movie-{{ $movie['id'] }}" :item="$movie" :on_watchlist="collect($watchlisted)->contains($movie['id'])" />
                                     @endforeach
                                 </div>
                                 <div @class([
@@ -32,7 +39,7 @@
                                 <p class="text-center p-16">No results found for '{{ $search }}'.</p>
                             @endif
                         </div>
-                        <div wire:loading.delay wire:target="render,search">
+                        <div wire:loading.delay class="mt-16" wire:target="render,search">
                             <i class="ri-loader-4-line animate-spin inline-flex text-9xl"></i>
                         </div>
                     @endif

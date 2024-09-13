@@ -16,4 +16,5 @@
         @enderror
         <button class="border p-3 mt-2 bg-green-600" type="submit">LOGIN</button>
     </form>
+    <a href="{{ route('register') }}" class="underline mt-4 hover:text-gray-300">I have no account yet.</a>
 </div>

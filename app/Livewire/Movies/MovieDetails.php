@@ -12,6 +12,8 @@ use Livewire\Component;
 
 class MovieDetails extends Component
 {
+    use ManagesMovieWatchlist;
+    
     public $movie = [];
     public $watchlisted = [];
 

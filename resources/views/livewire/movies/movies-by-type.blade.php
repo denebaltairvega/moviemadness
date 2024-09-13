@@ -8,7 +8,7 @@
                         @if ($movies)
                             <div class="posters-container">
                                 @foreach ($movies as $movie)
-                                    <x-movies.poster :item="$movie" />
+                                    <livewire:poster wire:key="movie-{{ $movie['id'] }}" :item="$movie" :on_watchlist="collect($watchlisted)->contains($movie['id'])" />
                                 @endforeach
                             </div>
                             <div @class([

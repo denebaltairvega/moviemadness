@@ -52,7 +52,7 @@ class SearchMovies extends Component
         return view('livewire.movies.search-movies');
     }
 
-    public function search()
+    public function searchMovies()
     {
         $this->current_page = 1;
     }

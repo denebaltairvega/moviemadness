@@ -30,4 +30,5 @@
         @enderror
         <button class="border p-3 mt-2 bg-green-600" type="submit">REGISTER</button>
     </form>
+    <a href="{{ route('login') }}" class="underline mt-4 hover:text-gray-300">I already have an account.</a>
 </div>

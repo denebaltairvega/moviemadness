@@ -10,7 +10,10 @@
     <div class="relative inline-flex flex-col mx-auto">
         <div class="absolute top-1 right-2 z-20 text-xl">
             <button
-                class="border-2 px-1 z-40 rounded-full hover:bg-red-600 duration-300 @if ($on_watchlist) bg-red-600 @endif"
+                @class([
+                    'border-2 px-1 z-40 rounded-full hover:bg-red-600 duration-300',
+                    'bg-red-600' => $on_watchlist
+                    ])
                 wire:click="toggleWatchlist({{ $item['id'] }})">
                 <i class="ri-loader-4-line animate-spin" wire:loading.delay
                     wire:target="toggleWatchlist({{ $item['id'] }})"></i>

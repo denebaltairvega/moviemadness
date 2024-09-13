@@ -71,15 +71,7 @@
                     <h6 class="text-sm">{{ $movie['vote_count'] }}</h6>
                 </div>
             </div>
-            <button
-                class="inline-flex items-center border px-2 py-1 gap-1 hover:bg-white duration-200 hover:text-slate-700 rounded-lg"
-                wire:click="toggleWatchlist({{ $movie['id'] }})">
-                <i class="ri-loader-4-line animate-spin" wire:loading.delay
-                    wire:target="toggleWatchlist({{ $movie['id'] }})"></i>
-                <i class="ri-bookmark-line" wire:loading.delay.remove
-                    wire:target="toggleWatchlist({{ $movie['id'] }})"></i>
-                <p class="text-xs md:text-sm">Add to Watchlist</p>
-            </button>
+                <x-movies.watchlist-toggler :item="$movie" :$on_watchlist/>
         </div>
         <div class="flex flex-col md:flex-row mt-8 justify-between items-start">
             <div class="md:w-3/4">
@@ -229,7 +221,7 @@
                 },
             }">
                     @foreach ($movie['similar'] as $similar)
-                        <livewire:poster :item="$similar" :on_watchlist="collect($watchlisted)->contains($similar['id'])" />
+                        <livewire:poster wire:key="movie-{{ $similar['id'] }}" :item="$similar" :on_watchlist="collect($watchlisted)->contains($similar['id'])" />
                     @endforeach
                 </x-splide>
             @else

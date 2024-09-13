@@ -1,6 +1,6 @@
 <div x-data x-cloak>
     <div wire:ignore.self>
-        <x-homepage.hero-carousel :items="$discover_movies" />
+        <x-homepage.hero-carousel :items="$discover_movies" :watchlisted="$watchlisted" />
     </div>
     <div class="md:px-16 px-4">
         <div class="space-y-8 mt-16">

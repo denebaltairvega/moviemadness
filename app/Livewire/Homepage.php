@@ -11,6 +11,8 @@ use Livewire\Component;
 
 class Homepage extends Component
 {
+    use ManagesMovieWatchlist;
+    
     public $discover_movies = [];
     public $movies = [];
     public $genres = [];
