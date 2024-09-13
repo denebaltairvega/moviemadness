@@ -1,9 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Grotesk:wght@400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Grotesk:wght@400;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
-
 
 /* scrollbar */
 
@@ -11,7 +9,7 @@
 * {
     scrollbar-width: thin;
     scrollbar-width: thin;
-    scrollbar-color: #888888 #DFE9EB;
+    scrollbar-color: #888888 #dfe9eb;
 }
 
 /* Chrome, Edge and Safari */
@@ -22,15 +20,15 @@
 
 *::-webkit-scrollbar-track {
     border-radius: 0px;
-    background-color: #DFE9EB;
+    background-color: #dfe9eb;
 }
 
 *::-webkit-scrollbar-track:hover {
-    background-color: #B8C0C2;
+    background-color: #b8c0c2;
 }
 
 *::-webkit-scrollbar-track:active {
-    background-color: #B8C0C2;
+    background-color: #b8c0c2;
 }
 
 *::-webkit-scrollbar-thumb {
@@ -53,7 +51,13 @@
 }
 
 .gradient {
-    background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 60%, rgba(0, 0, 0, 1) 95%);
+    background: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(255, 255, 255, 0) 50%,
+        rgba(255, 255, 255, 0) 60%,
+        rgba(0, 0, 0, 1) 95%
+    );
 }
 
 .splide__pagination {
@@ -64,7 +68,7 @@
 .progress-bar {
     width: 80px;
     height: 80px;
-    rotate: -90deg
+    rotate: -90deg;
 }
 
 .progress-bar__background {
@@ -81,7 +85,8 @@
     stroke-dashoffset: 0;
 }
 
-
 .posters-container {
     @apply grid sm:grid-cols-ram place-items-center gap-8 mt-8;
 }
+
+@tailwind utilities;
